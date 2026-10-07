@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yogendra Singh — Portfolio</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Space Grotesk + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-black': '#0a0a0a',
+                        'off-white': '#f5f5f5',
+                        'muted-gray': '#737373',
+                        'accent-gray': '#2a2a2a',
+                        'border-gray': '#1f1f1f',
+                    },
+                    fontFamily: {
+                        'grotesk': ['Space Grotesk', 'Helvetica Neue', 'sans-serif'],
+                        'inter': ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- ============================================
+         GRAIN TEXTURE OVERLAY (subtle texture)
+         ============================================ -->
+    <div class="grain-overlay"></div>
+    <div class="cursor-follower" aria-hidden="true"></div>
+
+    <!-- ============================================
+         NAVIGATION BAR (Sticky, Minimalist)
+         ============================================ -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
+            <!-- EDIT YOUR NAME/LOGO HERE -->
+            <a href="#home" class="font-grotesk font-bold text-lg tracking-tight hover:opacity-70 transition-opacity">
+                YS.
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#home" class="nav-link text-sm text-muted-gray hover:text-off-white font-inter" data-section="home">Home</a>
+                <a href="#about" class="nav-link text-sm text-muted-gray hover:text-off-white font-inter" data-section="about">About</a>
+                <a href="#education" class="nav-link text-sm text-muted-gray hover:text-off-white font-inter" data-section="education">Education</a>
+                <a href="#skills" class="nav-link text-sm text-muted-gray hover:text-off-white font-inter" data-section="skills">Skills</a>
+                <a href="#projects" class="nav-link text-sm text-muted-gray hover:text-off-white font-inter" data-section="projects">Projects</a>
+                <a href="#certifications" class="nav-link text-sm text-muted-gray hover:text-off-white font-inter" data-section="certifications">Milestones</a>
+                <a href="#contact" class="nav-link text-sm text-muted-gray hover:text-off-white font-inter" data-section="contact">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2 z-50 relative" aria-label="Toggle menu">
+                <span class="menu-line w-6 h-[1.5px] bg-off-white transition-all duration-300"></span>
+                <span class="menu-line w-6 h-[1.5px] bg-off-white transition-all duration-300"></span>
+                <span class="menu-line w-4 h-[1.5px] bg-off-white transition-all duration-300"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         MOBILE MENU (Full-screen overlay)
+         ============================================ -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-deep-black z-40 flex flex-col items-center justify-center gap-8 md:hidden">
+        <a href="#home" class="mobile-link font-grotesk text-3xl font-bold text-off-white hover:text-muted-gray transition-colors">Home</a>
+        <a href="#about" class="mobile-link font-grotesk text-3xl font-bold text-off-white hover:text-muted-gray transition-colors">About</a>
+        <a href="#education" class="mobile-link font-grotesk text-3xl font-bold text-off-white hover:text-muted-gray transition-colors">Education</a>
+        <a href="#skills" class="mobile-link font-grotesk text-3xl font-bold text-off-white hover:text-muted-gray transition-colors">Skills</a>
+        <a href="#projects" class="mobile-link font-grotesk text-3xl font-bold text-off-white hover:text-muted-gray transition-colors">Projects</a>
+        <a href="#certifications" class="mobile-link font-grotesk text-3xl font-bold text-off-white hover:text-muted-gray transition-colors">Milestones</a>
+        <a href="#contact" class="mobile-link font-grotesk text-3xl font-bold text-off-white hover:text-muted-gray transition-colors">Contact</a>
+    </div>
+
+    <!-- ============================================
+         MAIN CONTENT
+         ============================================ -->
+    <main>
+
+        <!-- ============================================
+             SECTION 01 — HERO / HOME
+             ============================================ -->
+        <section id="home" class="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-24 pb-16">
+            <div class="max-w-7xl mx-auto w-full">
+                
+                <!-- Section Marker -->
+                <div class="fade-up stagger-1 section-marker mb-8">
+                    [ 01 / 08 ] — HOME
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="heading-xl text-5xl sm:text-6xl md:text-7xl lg:text-[8rem] xl:text-[9rem] mb-8">
+                    <!-- EDIT YOUR HEADLINE HERE -->
+                    <span class="fade-up stagger-2 block">I build,</span>
+                    <span class="fade-up stagger-3 block">break,</span>
+                    <span class="fade-up stagger-4 block text-muted-gray">and rebuild code.</span>
+                </h1>
+
+                <!-- Name + Tagline Row -->
+                <div class="flex flex-col md:flex-row md:items-end md:justify-between mt-12 md:mt-20">
+                    <div class="fade-up stagger-5">
+                        <!-- EDIT YOUR NAME HERE -->
+                        <p class="font-grotesk text-lg md:text-xl font-medium mb-2">Yogendra Singh</p>
+                        <!-- EDIT YOUR TAGLINE HERE -->
+                        <p class="text-muted-gray font-inter text-sm md:text-base max-w-md">
+                            1st-Semester B.Tech Student. Self-taught developer.<br class="hidden md:block">
+                            Turning caffeine into clean code since 2020.
+                        </p>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="fade-up stagger-6 mt-8 md:mt-0">
+                        <a href="#projects" class="btn-primary inline-block border border-off-white px-8 py-4 font-grotesk text-sm font-medium tracking-wider uppercase">
+                            <span>View My Work →</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="fade-in mt-20 md:mt-32 flex items-center gap-3 text-muted-gray">
+                    <div class="w-12 h-[1px] bg-muted-gray"></div>
+                    <span class="text-xs font-inter tracking-widest uppercase">Scroll to explore</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider max-w-7xl mx-auto"></div>
+
+        <!-- ============================================
+             SECTION 02 — ABOUT ME
+             ============================================ -->
+        <section id="about" class="px-6 md:px-12 lg:px-24 py-24 md:py-40">
+            <div class="max-w-7xl mx-auto">
+                
+                <!-- Section Marker -->
+                <div class="fade-up section-marker mb-12 md:mb-20">
+                    [ 02 / 08 ] — ABOUT
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+                    <!-- Left: Label -->
+                    <div class="lg:col-span-3 fade-up">
+                        <h2 class="font-grotesk text-sm font-medium tracking-wider uppercase text-muted-gray">
+                            Who am I?
+                        </h2>
+                    </div>
+
+                    <!-- Right: Content -->
+                    <div class="lg:col-span-9">
+                        <h3 class="heading-lg text-3xl md:text-4xl lg:text-5xl mb-8 fade-up">
+                            <!-- EDIT YOUR ABOUT HEADING HERE -->
+                            Not your average freshman with a laptop.
+                        </h3>
+                        
+                        <div class="space-y-6 font-inter text-muted-gray text-base md:text-lg leading-relaxed max-w-3xl">
+                            <!-- EDIT YOUR ABOUT PARAGRAPH 1 HERE -->
+                            <p class="fade-up">
+                                I'm a first-semester B.Tech student at JECRC University who skipped the "wait until 
+                                college to start building" phase. While my peers are figuring out the campus canteen, 
+                                I'm knee-deep in documentation, debugging at 2 AM, and shipping projects that actually 
+                                solve problems.
+                            </p>
+                            
+                            <!-- EDIT YOUR ABOUT PARAGRAPH 2 HERE -->
+                            <p class="fade-up">
+                                My approach? Learn by building. I don't just follow tutorials — I break them, rebuild 
+                                them, and then build something better. Currently obsessed with full-stack development, 
+                                open-source contribution, and the art of writing code that my future self won't hate.
+                            </p>
+                            
+                            <!-- EDIT YOUR ABOUT PARAGRAPH 3 HERE -->
+                            <p class="fade-up">
+                                When I'm not coding, you'll find me participating in hackathons, reading about system 
+                                design, or convincing myself that this one last bug fix won't take all night. (It always does.)
+                            </p>
+                        </div>
+
+                        <!-- Quick Stats Row -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-8 border-t border-border-gray">
+                            <div class="fade-up">
+                                <p class="font-grotesk text-3xl md:text-4xl font-bold">5+</p>
+                                <p class="text-muted-gray text-sm mt-1">Projects Built</p>
+                            </div>
+                            <div class="fade-up stagger-1">
+                                <p class="font-grotesk text-3xl md:text-4xl font-bold">1</p>
+                                <p class="text-muted-gray text-sm mt-1">Hackathon</p>
+                            </div>
+                            <div class="fade-up stagger-2">
+                                <p class="font-grotesk text-3xl md:text-4xl font-bold">500+</p>
+                                <p class="text-muted-gray text-sm mt-1">GitHub Commits</p>
+                            </div>
+                            <div class="fade-up stagger-3">
+                                <p class="font-grotesk text-3xl md:text-4xl font-bold">∞</p>
+                                <p class="text-muted-gray text-sm mt-1">Cups of Chai</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider max-w-7xl mx-auto"></div>
+
+        <!-- ============================================
+             SECTION 03 — EDUCATION
+             ============================================ -->
+        <section id="education" class="px-6 md:px-12 lg:px-24 py-24 md:py-40">
+            <div class="max-w-7xl mx-auto">
+                
+                <!-- Section Marker -->
+                <div class="fade-up section-marker mb-12 md:mb-20">
+                    [ 03 / 08 ] — EDUCATION
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+                    <!-- Left: Label -->
+                    <div class="lg:col-span-3 fade-up">
+                        <h2 class="font-grotesk text-sm font-medium tracking-wider uppercase text-muted-gray">
+                            Academic<br>Background
+                        </h2>
+                    </div>
+
+                    <!-- Right: Content -->
+                    <div class="lg:col-span-9 space-y-16">
+                        
+                        <!-- Education Item 1 — Current -->
+                        <div class="fade-up border-b border-border-gray pb-12">
+                            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                                <div>
+                                    <!-- EDIT YOUR DEGREE HERE -->
+                                    <h3 class="heading-lg text-2xl md:text-3xl lg:text-4xl">
+                                        B.Tech in Computer Science & Engineering
+                                    </h3>
+                                    <!-- EDIT YOUR UNIVERSITY HERE -->
+                                    <p class="text-muted-gray font-inter text-lg mt-2">
+                                        JECRC University Jaipur
+                                    </p>
+                                </div>
+                                <div class="text-right">
+                                    <!-- EDIT YOUR DURATION HERE -->
+                                    <p class="font-grotesk text-sm text-muted-gray tracking-wider">2024 — 2028</p>
+                                    <p class="font-grotesk text-sm text-off-white mt-1">Current — 1st Semester</p>
+                                </div>
+                            </div>
+                            <!-- EDIT YOUR HIGHLIGHTS HERE -->
+                            <p class="text-muted-gray font-inter max-w-2xl mt-4">
+                                Relevant Coursework: Data Structures & Algorithms, Object-Oriented Programming, 
+                                Discrete Mathematics, Digital Electronics. Current CGPA: [X.X/10]. Active member 
+                                of the Coding Club and Open Source Community.
+                            </p>
+                        </div>
+
+                        <!-- Education Item 2 — Higher Secondary -->
+                        <div class="fade-up border-b border-border-gray pb-12">
+                            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                                <div>
+                                    <!-- EDIT YOUR HIGHER SECONDARY INFO HERE -->
+                                    <h3 class="heading-lg text-2xl md:text-3xl">
+                                        Higher Secondary — Science (PCM + CS)
+                                    </h3>
+                                    <p class="text-muted-gray font-inter text-lg mt-2">
+                                        Pink Model School, Jalore
+                                    </p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-grotesk text-sm text-muted-gray tracking-wider">2022 — 2024</p>
+                                    <p class="font-grotesk text-sm text-off-white mt-1">Completed</p>
+                                </div>
+                            </div>
+                            <p class="text-muted-gray font-inter max-w-2xl mt-4">
+                                Scored 80.2% in CBSE Board Examinations. School topper in Computer Science. 
+                                Led the school's tech fest organizing committee.
+                            </p>
+                        </div>
+
+                        <!-- Education Item 3 — Secondary -->
+                        <div class="fade-up pb-4">
+                            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                                <div>
+                                    <h3 class="heading-lg text-2xl md:text-3xl">
+                                        Secondary School
+                                    </h3>
+                                    <p class="text-muted-gray font-inter text-lg mt-2">
+                                        Govt Secondary School, Santhu
+                                    </p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-grotesk text-sm text-muted-gray tracking-wider">2012 — 2022</p>
+                                    <p class="font-grotesk text-sm text-off-white mt-1">Completed</p>
+                                </div>
+                            </div>
+                            <p class="text-muted-gray font-inter max-w-2xl mt-4">
+                                Scored 70% in CBSE Board Examinations. Where the obsession with computers began —
+                                probably from that one cousin who let me play games on his PC.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider max-w-7xl mx-auto"></div>
+
+        <!-- ============================================
+             SECTION 04 — SKILLS
+             ============================================ -->
+        <section id="skills" class="px-6 md:px-12 lg:px-24 py-24 md:py-40">
+            <div class="max-w-7xl mx-auto">
+                
+                <!-- Section Marker -->
+                <div class="fade-up section-marker mb-12 md:mb-20">
+                    [ 04 / 08 ] — SKILLS
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+                    <!-- Left: Label -->
+                    <div class="lg:col-span-3 fade-up">
+                        <h2 class="font-grotesk text-sm font-medium tracking-wider uppercase text-muted-gray">
+                            Tech Stack &<br>Toolbelt
+                        </h2>
+                    </div>
+
+                    <!-- Right: Skills Grid -->
+                    <div class="lg:col-span-9">
+                        <h3 class="heading-lg text-3xl md:text-4xl lg:text-5xl mb-12 fade-up">
+                            What I work with.
+                        </h3>
+
+                        <!-- Skills Group: Languages -->
+                        <div class="mb-12 fade-up">
+                            <p class="font-grotesk text-sm font-medium tracking-wider uppercase text-muted-gray mb-4">
+                                Languages
+                            </p>
+                            <div class="flex flex-wrap gap-3">
+                                <!-- EDIT YOUR SKILLS HERE -->
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Python</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">JavaScript</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">C++</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">C</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Java</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">SQL</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">HTML5</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">CSS3</span>
+                            </div>
+                        </div>
+
+                        <!-- Skills Group: Frameworks & Libraries -->
+                        <div class="mb-12 fade-up">
+                            <p class="font-grotesk text-sm font-medium tracking-wider uppercase text-muted-gray mb-4">
+                                Frameworks & Libraries
+                            </p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Pandas</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">TensorFlow</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">NumPy</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Scikit-learn</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">PyTorch</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Keras</span>
+                            </div>
+                        </div>
+
+                        <!-- Skills Group: Tools & Platforms -->
+                        <div class="mb-12 fade-up">
+                            <p class="font-grotesk text-sm font-medium tracking-wider uppercase text-muted-gray mb-4">
+                                Tools & Platforms
+                            </p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Git & GitHub</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">VS Code</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Linux</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Kaggle</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Google Colab</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Jupyter</span>
+                            </div>
+                        </div>
+
+                        <!-- Skills Group: Concepts -->
+                        <div class="fade-up">
+                            <p class="font-grotesk text-sm font-medium tracking-wider uppercase text-muted-gray mb-4">
+                                AI & ML Concepts
+                            </p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Machine Learning</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Deep Learning</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Neural Networks</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Data Preprocessing</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Model Evaluation</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Rag</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Computer Vision</span>
+                                <span class="skill-pill px-5 py-2.5 rounded-full text-sm font-inter cursor-default">Natural Language Processing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider max-w-7xl mx-auto"></div>
+
+        <!-- ============================================
+             SECTION 05 — PROJECTS
+             ============================================ -->
+        <section id="projects" class="px-6 md:px-12 lg:px-24 py-24 md:py-40">
+            <div class="max-w-7xl mx-auto">
+                
+                <!-- Section Marker -->
+                <div class="fade-up section-marker mb-12 md:mb-20">
+                    [ 05 / 08 ] — PROJECTS
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+                    <!-- Left: Label -->
+                    <div class="lg:col-span-3 fade-up">
+                        <h2 class="font-grotesk text-sm font-medium tracking-wider uppercase text-muted-gray">
+                            Selected<br>Work
+                        </h2>
+                    </div>
+
+                    <!-- Right: Project List -->
+                    <div class="lg:col-span-9">
+                        <h3 class="heading-lg text-3xl md:text-4xl lg:text-5xl mb-4 fade-up">
+                            Things I've built.
+                        </h3>
+                        <p class="text-muted-gray font-inter mb-16 fade-up max-w-2xl">
+                            From weekend experiments to semester-long obsessions. Each project taught me something 
+                            the textbooks couldn't.
+                        </p>
+
+                        <!-- Project 1 -->
+                        <div class="project-card fade-up border-l-2 border-border-gray pl-6 md:pl-8 pb-12 mb-12">
+                            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                                <div>
+                                    <!-- EDIT YOUR PROJECT TITLE HERE -->
+                                    <h4 class="font-grotesk text-2xl md:text-3xl font-bold">File Flipper</h4>
+                                    <!-- EDIT YOUR PROJECT TECH TAGS HERE -->
+                                    <div class="flex flex-wrap gap-2 mt-3">
+                                        <span class="text-xs text-muted-gray font-inter bg-accent-gray px-3 py-1 rounded-full">Python</span>
+                                        <span class="text-xs text-muted-gray font-inter bg-accent-gray px-3 py-1 rounded-full">File Automation</span>
+                                        <span class="text-xs text-muted-gray font-inter bg-accent-gray px-3 py-1 rounded-full">CLI Tool</span>
+                                    </div>
+                                </div>
+                                <p class="section-number">01</p>
+                            </div>
+                            <!-- EDIT YOUR PROJECT DESCRIPTION HERE -->
+                            <p class="text-muted-gray font-inter max-w-2xl mb-6">
+                                File Flipper is a Python utility that scans a directory, groups files by extension or name, 
+                                and automatically creates folders for each category to keep messy folders organized. It saves 
+                                time, reduces clutter, and makes large file collections much easier to manage.
+                            </p>
+                            <!-- EDIT YOUR PROJECT LINKS HERE -->
+                            <div class="flex gap-6">
+                                <a href="#" class="text-sm font-inter text-off-white hover:text-muted-gray transition-colors flex items-center gap-1">
+                                    GitHub <span class="text-muted-gray">↗</span>
+                                </a>
+                                <a href="#" class="text-sm font-inter text-off-white hover:text-muted-gray transition-colors flex items-center gap-1">
+                                    Live Demo <span class="text-muted-gray">↗</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="project-card fade-up border-l-2 border-border-gray pl-6 md:pl-8 pb-12 mb-12">
+                            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                                <div>
+                                    <h4 class="font-grotesk text-2xl md:text-3xl font-bold">VideoMan</h4>
+                                    <div class="flex flex-wrap gap-2 mt-3">
+                                        <span class="text-xs text-muted-gray font-inter bg-accent-gray px-3 py-1 rounded-full">Python</span>
+                                        <span class="text-xs text-muted-gray font-inter bg-accent-gray px-3 py-1 rounded-full">yt-dlp</span>
+                                        <span class="text-xs text-muted-gray font-inter bg-accent-gray px-3 py-1 rounded-full">CLI</span>
+                                    </div>
+                                </div>
+                                <p class="section-number">02</p>
+                            </div>
+                            <p class="text-muted-gray font-inter max-w-2xl mb-6">
+                                VideoMan is a Python-based video downloader that fetches videos from the internet using yt-dlp, 
+                                supports multiple formats and quality options, and helps users save media quickly without the usual 
+                                browser clutter. I built it to simplify downloads while learning automation, terminal scripting, and
+                                handling real-world media workflows.
+                            </p>
+                            <div class="flex gap-6">
+                                <a href="https://github.com/yogendra-raj-singh/Video-Man" target="_blank" rel="noopener noreferrer" class="text-sm font-inter text-off-white hover:text-muted-gray transition-colors flex items-center gap-1">
+                                    GitHub <span class="text-muted-gray">↗</span>
+                                </a>
+                                <a href="#" class="text-sm font-inter text-off-white hover:text-muted-gray transition-colors flex items-center gap-1">
+                                    Demo <span class="text-muted-gray">↗</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="project-card fade-up border-l-2 border-border-gray pl-6 md:pl-8 pb-12 mb-12">
+                            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                                <div>
+                                    <h4 class="font-grotesk text-2xl md:text-3xl font-bold">QuickSort Visualizer</h4>
+                                    <div class="flex flex-wrap gap-2 mt-3">
+                                        <span class="text-xs text-muted-gray font-inter bg-accent-gray px-3 py-1 rounded-full">JavaScript</span>
+                                        <span class="text-xs text-muted-gray font-inter bg-accent-gray px-3 py-1 rounded-full">Canvas API</span>
+                                        <span class="text-xs text-muted-gray font-inter bg-accent-gray px-3 py-1 rounded-full">HTML5</span>
+                                    </div>
+                                </div>
+                                <p class="section-number">03</p>
+                            </div>
+                            <p class="text-muted-gray font-inter max-w-2xl mb-6">
+                                A small project that shows how QuickSort works step by step with moving bars and comparisons. 
+                                It helped me understand sorting logic better and made DSA concepts easier to explain visually.
+                            </p>
+                            <div class="flex gap-6">
+                                <a href="#" class="text-sm font-inter text-off-white hover:text-muted-gray transition-colors flex items-center gap-1">
+                                    GitHub <span class="text-muted-gray">↗</span>
+                                </a>
+                                <a href="#" class="text-sm font-inter text-off-white hover:text-muted-gray transition-colors flex items-center gap-1">
+                                    Live Demo <span class="text-muted-gray">↗</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project 4 -->
+                        <div class="project-card fade-up border-l-2 border-border-gray pl-6 md:pl-8 pb-4">
+                            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                                <div>
+                                    <h4 class="font-grotesk text-2xl md:text-3xl font-bold">WeatherNow CLI</h4>
+                                    <div class="flex flex-wrap gap-2 mt-3">
+                                        <span class="text-xs text-muted-gray font-inter bg-accent-gray px-3 py-1 rounded-full">Python</span>
+                                        <span class="text-xs text-muted-gray font-inter bg-accent-gray px-3 py-1 rounded-full">OpenWeather API</span>
+                                    </div>
+                                </div>
+                                <p class="section-number">04</p>
+                            </div>
+                            <p class="text-muted-gray font-inter max-w-2xl mb-6">
+                                A terminal-based weather app with colored ASCII art forecasts. My first "real" project — 
+                                simple, useful, and taught me everything about API integration and error handling.
+                            </p>
+                            <div class="flex gap-6">
+                                <a href="#" class="text-sm font-inter text-off-white hover:text-muted-gray transition-colors flex items-center gap-1">
+                                    GitHub <span class="text-muted-gray">↗</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider max-w-7xl mx-auto"></div>
+
+        <!-- ============================================
+             SECTION 06 — CERTIFICATIONS / MILESTONES
+             ============================================ -->
+        <section id="certifications" class="px-6 md:px-12 lg:px-24 py-24 md:py-40">
+            <div class="max-w-7xl mx-auto">
+                
+                <!-- Section Marker -->
+                <div class="fade-up section-marker mb-12 md:mb-20">
+                    [ 06 / 08 ] — MILESTONES
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+                    <!-- Left: Label -->
+                    <div class="lg:col-span-3 fade-up">
+                        <h2 class="font-grotesk text-sm font-medium tracking-wider uppercase text-muted-gray">
+                            Certifications<br>& Wins
+                        </h2>
+                    </div>
+
+                    <!-- Right: Milestones List -->
+                    <div class="lg:col-span-9">
+                        <h3 class="heading-lg text-3xl md:text-4xl lg:text-5xl mb-4 fade-up">
+                            The proof is in the pudding.
+                        </h3>
+                        <p class="text-muted-gray font-inter mb-16 fade-up max-w-2xl">
+                            Milestones, certifications, and moments that made me go "I did that."
+                        </p>
+
+                        <!-- Milestone List -->
+                        <div class="space-y-0">
+                            <!-- Milestone 1 -->
+                            <div class="fade-up flex gap-6 md:gap-12 items-start py-8 border-b border-border-gray group hover:border-muted-gray transition-colors">
+                                <span class="section-number pt-1">001</span>
+                                <div class="flex-1">
+                                    <h4 class="font-grotesk text-xl md:text-2xl font-medium group-hover:text-off-white transition-colors">
+                                        Smart India Hackathon 2025 — Participant
+                                    </h4>
+                                    <p class="text-muted-gray font-inter mt-2">
+                                        Worked as a developer in a team building an AI-powered solution. 
+                                        Contributed to problem solving, implementation, and product development.
+                                    </p>
+                                </div>
+                                <span class="text-muted-gray font-inter text-sm pt-1 hidden md:block">2025</span>
+                            </div>
+
+                            <!-- Milestone 2 -->
+                            <div class="fade-up flex gap-6 md:gap-12 items-start py-8 border-b border-border-gray group hover:border-muted-gray transition-colors">
+                                <span class="section-number pt-1">002</span>
+                                <div class="flex-1">
+                                    <h4 class="font-grotesk text-xl md:text-2xl font-medium group-hover:text-off-white transition-colors">
+                                        Claude Architect Certificate — Completed
+                                    </h4>
+                                    <p class="text-muted-gray font-inter mt-2">
+                                        Completed the Claude Architect certification after successfully clearing the required exam.
+                                    </p>
+                                </div>
+                                <span class="text-muted-gray font-inter text-sm pt-1 hidden md:block">2025</span>
+                            </div>
+
+                            <!-- Milestone 3 -->
+                            <div class="fade-up flex gap-6 md:gap-12 items-start py-8 border-b border-border-gray group hover:border-muted-gray transition-colors">
+                                <span class="section-number pt-1">003</span>
+                                <div class="flex-1">
+                                    <h4 class="font-grotesk text-xl md:text-2xl font-medium group-hover:text-off-white transition-colors">
+                                        Harvard CS50 — Completed
+                                    </h4>
+                                    <p class="text-muted-gray font-inter mt-2">
+                                        Completed Harvard's CS50 course and secured a final score of 92%.
+                                    </p>
+                                </div>
+                                <span class="text-muted-gray font-inter text-sm pt-1 hidden md:block">2025</span>
+                            </div>
+
+                            <!-- Milestone 4 -->
+                            <div class="fade-up flex gap-6 md:gap-12 items-start py-8 border-b border-border-gray group hover:border-muted-gray transition-colors">
+                                <span class="section-number pt-1">004</span>
+                                <div class="flex-1">
+                                    <h4 class="font-grotesk text-xl md:text-2xl font-medium group-hover:text-off-white transition-colors">
+                                        LeetCode — Active Problem Solver
+                                    </h4>
+                                    <p class="text-muted-gray font-inter mt-2">
+                                        Regularly practice coding problems to strengthen algorithm and problem-solving skills.
+                                    </p>
+                                </div>
+                                <span class="text-muted-gray font-inter text-sm pt-1 hidden md:block">Ongoing</span>
+                            </div>
+
+                            <!-- Milestone 5 -->
+                            <div class="fade-up flex gap-6 md:gap-12 items-start py-8 group">
+                                <span class="section-number pt-1">005</span>
+                                <div class="flex-1">
+                                    <h4 class="font-grotesk text-xl md:text-2xl font-medium group-hover:text-off-white transition-colors">
+                                        IBM Data Analysis Certificate — Completed
+                                    </h4>
+                                    <p class="text-muted-gray font-inter mt-2">
+                                        Completed an IBM Data Analysis course and gained hands-on experience in data interpretation and analytical thinking.
+                                    </p>
+                                </div>
+                                <span class="text-muted-gray font-inter text-sm pt-1 hidden md:block">2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider max-w-7xl mx-auto"></div>
+
+        <!-- ============================================
+             SECTION 07 — CONTACT
+             ============================================ -->
+        <section id="contact" class="px-6 md:px-12 lg:px-24 py-12 md:py-20">
+            <div class="max-w-7xl mx-auto">
+                
+                <!-- Section Marker -->
+                <div class="fade-up section-marker mb-8 md:mb-12">
+                    [ 07 / 08 ] — CONTACT
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+                    <!-- Left: Label -->
+                    <div class="lg:col-span-3 fade-up">
+                        <h2 class="font-grotesk text-sm font-medium tracking-wider uppercase text-muted-gray">
+                            Let's Talk
+                        </h2>
+                    </div>
+
+                    <!-- Right: Contact Form + Heading -->
+                    <div class="lg:col-span-9">
+                        <!-- Bold Contact Heading -->
+                        <h3 class="heading-xl text-4xl md:text-5xl lg:text-7xl mb-3 fade-up">
+                            <!-- EDIT YOUR CONTACT HEADING HERE -->
+                            Got a problem?
+                        </h3>
+                        <h3 class="heading-xl text-4xl md:text-5xl lg:text-7xl mb-8 fade-up text-muted-gray">
+                            Let's solve it.
+                        </h3>
+
+                        <!-- Contact Form -->
+                        <form id="contact-form" class="space-y-8 max-w-2xl">
+                            <!-- Name Field -->
+                            <div class="fade-up">
+                                <label for="name" class="block font-grotesk text-sm tracking-wider uppercase text-muted-gray mb-2">
+                                    Your Name
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    class="form-input" 
+                                    placeholder="Jane Smith"
+                                    required
+                                >
+                            </div>
+
+                            <!-- Email Field -->
+                            <div class="fade-up">
+                                <label for="email" class="block font-grotesk text-sm tracking-wider uppercase text-muted-gray mb-2">
+                                    Your Email
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    class="form-input" 
+                                    placeholder="jane@company.com"
+                                    required
+                                >
+                            </div>
+
+                            <!-- Message Field -->
+                            <div class="fade-up">
+                                <label for="message" class="block font-grotesk text-sm tracking-wider uppercase text-muted-gray mb-2">
+                                    Your Message
+                                </label>
+                                <textarea 
+                                    id="message" 
+                                    name="message" 
+                                    rows="4" 
+                                    class="form-input resize-none" 
+                                    placeholder="Tell me about your project, opportunity, or just say hello..."
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="fade-up pt-4">
+                                <button type="submit" class="btn-primary inline-block border border-off-white px-10 py-4 font-grotesk text-sm font-medium tracking-wider uppercase cursor-pointer">
+                                    <span>Send Message →</span>
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Form Success Message (Hidden by default) -->
+                        <div id="form-success" class="hidden mt-8 p-6 border border-green-500/30 bg-green-500/5 rounded-lg">
+                            <p class="font-grotesk text-lg font-medium text-green-400">Message sent successfully! ✨</p>
+                            <p class="text-muted-gray font-inter text-sm mt-1">I'll get back to you within 24 hours.</p>
+                        </div>
+
+                        <!-- Alternative Contact Info -->
+                        <div class="fade-up mt-10 pt-4 border-t border-border-gray">
+                            <p class="font-grotesk text-sm tracking-wider uppercase text-muted-gray mb-3">Or reach me directly at</p>
+                            <!-- EDIT YOUR EMAIL HERE -->
+                            <a href="mailto:sunildhalter@gmail.com" class="font-grotesk text-xl md:text-2xl text-off-white hover:text-muted-gray transition-colors">
+                                sunildhalter@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider max-w-7xl mx-auto"></div>
+
+    </main>
+
+    <!-- ============================================
+         SECTION 08 — FOOTER
+         ============================================ -->
+    <footer class="px-6 md:px-12 lg:px-24 py-16 md:py-24">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Section Marker -->
+            <div class="section-marker mb-12 fade-up">
+                [ 08 / 08 ] — FOOTER
+            </div>
+
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-12">
+                <!-- Left: Big CTA -->
+                <div class="fade-up">
+                    <h3 class="heading-lg text-3xl md:text-5xl lg:text-6xl mb-6">
+                        <!-- EDIT YOUR FOOTER CTA HERE -->
+                        Where do I sign?
+                    </h3>
+                    <a href="#contact" class="btn-primary inline-block border border-off-white px-8 py-4 font-grotesk text-sm font-medium tracking-wider uppercase">
+                        <span>Start a Conversation →</span>
+                    </a>
+                </div>
+
+                <!-- Right: Social Links -->
+                <div class="fade-up flex flex-col items-start md:items-end gap-6">
+                    <div class="flex gap-6">
+                        <!-- EDIT YOUR GITHUB LINK HERE -->
+                        <a href="https://github.com/yogendra-raj-singh" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                            <span class="social-handle">@yogendra-raj-singh</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <!-- EDIT YOUR LINKEDIN LINK HERE -->
+                        <a href="https://linkedin.com/sunil-rajpurohit" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                            <span class="social-handle">@sunil-rajpurohit</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <!-- EDIT YOUR INSTAGRAM LINK HERE -->
+                        <a href="https://www.instagram.com/rajpurohitsunil__" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                            <span class="social-handle">@rajpurohitsunil__</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                                <circle cx="12" cy="12" r="4"/>
+                                <circle cx="18" cy="6" r="1.2" fill="currentColor" stroke="none"/>
+                            </svg>
+                        </a>
+                        <!-- EDIT YOUR EMAIL LINK HERE -->
+                        <a href="mailto:sunildhalter@gmail.com" class="social-link" aria-label="Email">
+                            <span class="social-handle">sunildhalter@gmail.com</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar: Copyright -->
+            <div class="fade-up mt-20 pt-8 border-t border-border-gray flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <!-- EDIT COPYRIGHT TEXT HERE -->
+                <p class="font-inter text-sm text-muted-gray">
+                    © 2026 Yogendra Singh. Built with caffeine, curiosity, and way too many Stack Overflow tabs.
+                </p>
+                <a href="#home" class="font-inter text-sm text-muted-gray hover:text-off-white transition-colors flex items-center gap-2">
+                    Back to top
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m18 15-6-6-6 6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
